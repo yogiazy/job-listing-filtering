@@ -6,28 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/logo-azy.png">
   <title>Frontend Mentor | Job Listings</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <!-- Item Start -->
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Senior
-  <!-- Languages -->
-  HTML
-  CSS
-  JavaScript
-  <!-- Item End -->
+  <header class="sticky bg-dark_cyan top-0">
+    <img src="./images/bg-header-mobile.svg" class="md:hidden" alt="header-mobile">
+    <img src="./images/bg-header-desktop.svg" class="hidden md:flex" alt="header-desktop">
+  </header>
+
+  <div class="grid grid-cols-1 gap-8 px-4 py-8">
+    <div class="container mx-auto bg-white py-8 relative rounded-sm">
+      <div class="absolute w-12 -top-6">
+        <img src="./images/photosnap.svg" class="w-full" alt="">
+      </div>
+      Photosnap
+    </div>
+    <div class="container mx-auto bg-white">
+      Photosnap
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <div class="attribution footer">
