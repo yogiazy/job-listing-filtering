@@ -4,7 +4,9 @@
   "description": "![Design preview for the Job listings with filtering coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "mincss": "npx tailwindcss -o ./css/style-min.css --minify"
   },
   "keywords": [],
   "author": "",
