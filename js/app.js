@@ -10,6 +10,8 @@ function addFilter(data) {
         iconRemove.src = './images/icon-remove.svg';
         iconRemove.className = 'icon_remove';
         iconRemove.alt = 'icon-remove';
+        iconRemove.setAttribute('onclick', 'removeAdd(this)');
+        filter.appendChild(iconRemove);
 
         $('#group_list').classList.add('space-1');
         $('#sort_tag').appendChild(filter);
@@ -21,4 +23,10 @@ function removeFilter() {
         $('#group_filter').classList.add('hidden');
         $('#group_list').classList.remove('space-1');
         $('#sort_tag').innerHTML = '';
+}
+
+function removeAdd(data) {
+        const d = data.parentElement;
+        $('#sort_tag').removeChild(d);
+
 }
