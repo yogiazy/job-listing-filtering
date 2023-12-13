@@ -159,15 +159,21 @@ window.onload = function () {
                                 flexContainer.appendChild(imageContainer);
                                 flexContainer.appendChild(textContainer);
 
-                                // Membuat elemen hr
                                 const hrElement = document.createElement('hr');
                                 hrElement.classList.add('border-t-2', 'my-2', 'lg:hidden');
 
-                                // Membuat elemen tag
                                 const tagContainer = document.createElement('div');
                                 tagContainer.classList.add('tag');
 
-                                const tags = ['Frontend', 'Senior', 'HTML', 'CSS', 'Javascript'];
+                                let tags = [];
+                                tags.push(data[i].role);
+                                tags.push(data[i].level);
+                                for (j in data[i].languages) {
+                                        tags.push(data[i].languages[j]);
+                                }
+                                for (j in data[i].tools) {
+                                        tags.push(data[i].tools[j]);
+                                }
 
                                 tags.forEach(tagText => {
                                         const tagSpan = document.createElement('span');
@@ -179,15 +185,12 @@ window.onload = function () {
                                         tagContainer.appendChild(tagSpan);
                                 });
 
-                                // Menyusun elemen-elemen
                                 newJobElement.appendChild(flexContainer);
                                 newJobElement.appendChild(hrElement);
                                 newJobElement.appendChild(tagContainer);
 
-                                // Menemukan elemen dengan ID 'group_list'
                                 const groupListElement = document.getElementById('group_list');
 
-                                // Menambahkan elemen baru ke elemen dengan ID 'group_list'
                                 groupListElement.appendChild(newJobElement);
 
                         }
