@@ -63,7 +63,7 @@ function filterByTag() {
                                         return dataTagValue === elementTag;
                                 });
                         });
-                        
+
                         if (!showJob) {
                                 jobElement.classList.add('hidden');
                                 jobElement.classList.remove('list-filtered');
@@ -81,5 +81,115 @@ window.onload = function () {
                 .then(data => {
                         console.log(data);
                         console.log(data[0]);
+                        console.log(data[0].id);
+
+                        for (var i = 0; i < data.length; i++) {
+                                const newJobElement = document.createElement('div');
+                                newJobElement.id = data[i].id;
+                                newJobElement.classList.add('list-job', 'list-active', 'list-filtered');
+
+                                const flexContainer = document.createElement('div');
+                                flexContainer.classList.add('flex', 'lg:items-center', 'lg:justify-center', 'gap-6');
+
+                                const imageContainer = document.createElement('div');
+                                imageContainer.classList.add('absolute', 'w-12', '-top-6', 'lg:relative', 'lg:top-0', 'lg:w-20');
+
+                                const image = document.createElement('img');
+                                image.src = data[i].logo;
+                                image.classList.add('w-full');
+                                image.alt = data[i].company;
+
+                                imageContainer.appendChild(image);
+
+                                const textContainer = document.createElement('div');
+                                textContainer.classList.add('block');
+
+                                const heading2 = document.createElement('h2');
+                                heading2.textContent = data[i].company;
+
+                                const newSpan = document.createElement('span');
+                                newSpan.classList.add('ml-4');
+                                newSpan.classList.add('mr-2');
+                                if (data[i].new) {
+                                        newSpan.classList.add('new');
+                                        newSpan.textContent = 'NEW!';
+                                }
+                                
+
+                                const featuredSpan = document.createElement('span');
+                                if (data[i].featured) {
+                                        featuredSpan.classList.add('featured');
+                                        featuredSpan.textContent = 'FEATURED';
+                                }
+
+                                heading2.appendChild(newSpan);
+                                heading2.appendChild(featuredSpan);
+
+                                const heading3 = document.createElement('h3');
+                                heading3.textContent = 'Senior Frontend Developer';
+
+                                const infoContainer = document.createElement('div');
+                                infoContainer.classList.add('flex', 'items-center', 'gap-x-2');
+
+                                const timeInfo = document.createElement('h4');
+                                timeInfo.textContent = '1d ago';
+
+                                const dot1 = document.createElement('span');
+                                dot1.classList.add('dot');
+
+                                const jobType = document.createElement('h4');
+                                jobType.textContent = 'Full Time';
+
+                                const dot2 = document.createElement('span');
+                                dot2.classList.add('dot');
+
+                                const locationInfo = document.createElement('h4');
+                                locationInfo.textContent = 'USA only';
+
+                                infoContainer.appendChild(timeInfo);
+                                infoContainer.appendChild(dot1);
+                                infoContainer.appendChild(jobType);
+                                infoContainer.appendChild(dot2);
+                                infoContainer.appendChild(locationInfo);
+
+                                textContainer.appendChild(heading2);
+                                textContainer.appendChild(heading3);
+                                textContainer.appendChild(infoContainer);
+
+                                flexContainer.appendChild(imageContainer);
+                                flexContainer.appendChild(textContainer);
+
+                                // Membuat elemen hr
+                                const hrElement = document.createElement('hr');
+                                hrElement.classList.add('border-t-2', 'my-2', 'lg:hidden');
+
+                                // Membuat elemen tag
+                                const tagContainer = document.createElement('div');
+                                tagContainer.classList.add('tag');
+
+                                const tags = ['Frontend', 'Senior', 'HTML', 'CSS', 'Javascript'];
+
+                                tags.forEach(tagText => {
+                                        const tagSpan = document.createElement('span');
+                                        tagSpan.setAttribute('tag', `tag_${tagText.toLowerCase()}`);
+                                        tagSpan.textContent = tagText;
+                                        tagSpan.onclick = function () {
+                                                addFilter(this);
+                                        };
+                                        tagContainer.appendChild(tagSpan);
+                                });
+
+                                // Menyusun elemen-elemen
+                                newJobElement.appendChild(flexContainer);
+                                newJobElement.appendChild(hrElement);
+                                newJobElement.appendChild(tagContainer);
+
+                                // Menemukan elemen dengan ID 'group_list'
+                                const groupListElement = document.getElementById('group_list');
+
+                                // Menambahkan elemen baru ke elemen dengan ID 'group_list'
+                                groupListElement.appendChild(newJobElement);
+
+                        }
                 })
 }

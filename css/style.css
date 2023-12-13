@@ -625,6 +625,14 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1086,10 +1094,6 @@ h4 {
 
   .lg\:top-0 {
     top: 0px;
-  }
-
-  .lg\:flex {
-    display: flex;
   }
 
   .lg\:hidden {
