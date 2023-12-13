@@ -132,19 +132,19 @@ window.onload = function () {
                                 infoContainer.classList.add('flex', 'items-center', 'gap-x-2');
 
                                 const timeInfo = document.createElement('h4');
-                                timeInfo.textContent = '1d ago';
+                                timeInfo.textContent = data[i].postedAt;
 
                                 const dot1 = document.createElement('span');
                                 dot1.classList.add('dot');
 
                                 const jobType = document.createElement('h4');
-                                jobType.textContent = 'Full Time';
+                                jobType.textContent = data[i].contract;
 
                                 const dot2 = document.createElement('span');
                                 dot2.classList.add('dot');
 
                                 const locationInfo = document.createElement('h4');
-                                locationInfo.textContent = 'USA only';
+                                locationInfo.textContent = data[i].location;
 
                                 infoContainer.appendChild(timeInfo);
                                 infoContainer.appendChild(dot1);
