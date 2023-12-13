@@ -31,6 +31,7 @@ function removeFilter() {
         $('#group_filter').classList.add('hidden');
         $('#group_list').classList.remove('space-1');
         $('#sort_tag').innerHTML = '';
+        dataTag = [];
         filterByTag();
 }
 
@@ -51,27 +52,34 @@ function filterByTag() {
         if (dataTag.length === 0) {
                 jobElements.forEach(function (jobElement) {
                         jobElement.classList.remove('hidden');
+                        jobElement.classList.add('list-filtered');
                 });
         } else {
                 jobElements.forEach(function (jobElement) {
                         const tagElements = jobElement.querySelectorAll('.tag span');
-                        // let showJob = false;
-        
-                        const showJob = dataTag.every(function(dataTagValue) {
-                                return Array.from(tagElements).some(function(tagElement) {
-                                    const elementTag = tagElement.getAttribute('tag');
-                                    return dataTagValue === elementTag;
+                        const showJob = dataTag.every(function (dataTagValue) {
+                                return Array.from(tagElements).some(function (tagElement) {
+                                        const elementTag = tagElement.getAttribute('tag');
+                                        return dataTagValue === elementTag;
                                 });
-                            });
-        
-                        // Menentukan apakah elemen pekerjaan harus ditampilkan atau disembunyikan
+                        });
+                        
                         if (!showJob) {
                                 jobElement.classList.add('hidden');
+                                jobElement.classList.remove('list-filtered');
                         } else {
                                 jobElement.classList.remove('hidden');
+                                jobElement.classList.add('list-filtered');
                         }
                 });
         }
 }
 
-
+window.onload = function () {
+        fetch('./data.json')
+                .then(response => response.json())
+                .then(data => {
+                        console.log(data);
+                        console.log(data[0]);
+                })
+}
