@@ -16,3 +16,9 @@ function addFilter(data) {
         $('#group_filter').classList.remove('hidden');
         console.log($('#sort_tag'));
 }
+
+function removeFilter() {
+        $('#group_filter').classList.add('hidden');
+        $('#group_list').classList.remove('space-1');
+        $('#sort_tag').innerHTML = '';
+}
