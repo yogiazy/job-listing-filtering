@@ -126,7 +126,7 @@ window.onload = function () {
                                 heading2.appendChild(featuredSpan);
 
                                 const heading3 = document.createElement('h3');
-                                heading3.textContent = 'Senior Frontend Developer';
+                                heading3.textContent = data[i].position;
 
                                 const infoContainer = document.createElement('div');
                                 infoContainer.classList.add('flex', 'items-center', 'gap-x-2');
