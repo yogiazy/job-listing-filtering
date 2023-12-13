@@ -11,106 +11,124 @@
 </head>
 
 <body>
-  <header class="container mx-auto bg-dark_cyan top-0 z-20">
-    <img src="./images/bg-header-mobile.svg" class="md:hidden" alt="header-mobile">
-    <img src="./images/bg-header-desktop.svg" class="hidden md:flex" alt="header-desktop">
+  <header class="sticky bg-dark_cyan top-0 z-20">
+    <div class="flex justify-center">
+      <img src="./images/bg-header-mobile.svg" class="sm:hidden" alt="header-mobile">
+      <img src="./images/bg-header-desktop.svg" class="hidden sm:flex" alt="header-desktop">
+    </div>
 
     <!-- Filter -->
-    <div class="grid grid-cols-1 mx-4 relative right-0">
-      <div id="filter" class="filter mx-4">
-        <div class="flex items-center justify-between">
-          <div id="sort_tag" class="sort_tag">
-            <div class="list_tag relative" tag="tag_frontend">Frontend
-              <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
+    <div id="group_filter" class="container mx-auto hidden">
+      <div class="grid grid-cols-1 mx-4 relative right-0">
+        <div id="filter" class="filter mx-4">
+          <div class="flex items-center justify-between">
+            <div id="sort_tag" class="sort_tag">
+              <div class="list_tag relative" tag="tag_frontend">Frontend
+                <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
+              </div>
+              <div class="list_tag relative" tag="tag_senior">Senior
+                <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
+              </div>
+              <div class="list_tag relative" tag="tag_html">HTML
+                <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
+              </div>
             </div>
-            <div class="list_tag relative" tag="tag_senior">Senior
-              <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
+            <div id="clear" class="clear">
+              Clear
             </div>
-            <div class="list_tag relative" tag="tag_html">HTML
-              <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
-            </div>
-          </div>
-          <div id="clear" class="clear">
-            Clear
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="grid grid-cols-1 gap-8 px-4 py-8 mt-24 -z-20">
+  <div id="group_list" class="container mx-auto">
+    <div class="grid grid-cols-1 gap-8 px-4 py-8 mt-4 -z-20">
 
-    <!-- Photosnap -->
-    <div id="1" class="list-job">
-      <div class="absolute w-12 -top-6">
-        <img src="./images/photosnap.svg" class="w-full" alt="photosnap">
+      <!-- Photosnap -->
+      <div id="1" class="list-job list-active">
+        <div class="flex lg:items-center lg:justify-center gap-6">
+          <div class="absolute w-12 -top-6 lg:relative lg:top-0 lg:w-20">
+            <img src="./images/photosnap.svg" class="w-full" alt="photosnap">
+          </div>
+          <div class="block">
+            <h2>Photosnap <span class="new">NEW!</span><span class="featured">FEATURED</span></h2>
+            <h3>Senior Frontend Developer</h3>
+            <div class="flex items-center gap-x-2">
+              <h4>1d ago</h4>
+              <span class="dot"></span>
+              <h4>Full Time</h4>
+              <span class="dot"></span>
+              <h4>USA only</h4>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t-2 my-2 lg:hidden">
+        <div class="tag">
+          <span tag="tag_frontend" onclick="addFilter(this)">Frontend</span>
+          <span tag="tag_senior">Senior</span>
+          <span tag="tag_html">HTML</span>
+          <span tag="tag_css">CSS</span>
+          <span tag="tag_javascript">Javascript</span>
+        </div>
       </div>
-      <h2>Photosnap <span class="new">NEW!</span><span class="featured">FEATURED</span></h2>
-      <h3>Senior Frontend Developer</h3>
-      <div class="flex items-center gap-x-2">
-        <h4>1d ago</h4>
-        <span class="dot"></span>
-        <h4>Full Time</h4>
-        <span class="dot"></span>
-        <h4>USA only</h4>
+
+      <!-- Manage -->
+      <div id="2" class="list-job list-active">
+        <div class="flex lg:items-center lg:justify-center gap-6">
+          <div class="absolute w-12 -top-6 lg:relative lg:top-0 lg:w-20">
+            <img src="./images/manage.svg" class="w-full" alt="manage">
+          </div>
+          <div class="block">
+            <h2>Manage <span class="new">NEW!</span><span class="featured">FEATURED</span></h2>
+            <h3>Fullstack Developer</h3>
+            <div class="flex items-center gap-x-2">
+              <h4>1d ago</h4>
+              <span class="dot"></span>
+              <h4>Part Time</h4>
+              <span class="dot"></span>
+              <h4>Remote</h4>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t-2 my-2 lg:hidden">
+        <div id="tag-2" class="tag">
+          <span tag="tag_fullstack">Fullstack</span>
+          <span tag="tag_midweight">Midweight</span>
+          <span tag="tag_python">Python</span>
+          <span tag="tag_react">React</span>
+        </div>
       </div>
-      <hr class="border-t-2 my-2">
-      <div class="tag">
-        <span tag="tag_frontend">Frontend</span>
-        <span tag="tag_senior">Senior</span>
-        <span tag="tag_html">HTML</span>
-        <span tag="tag_css">CSS</span>
-        <span tag="tag_javascript">Javascript</span>
+
+      <!-- Account -->
+      <div id="3" class="list-job">
+        <div class="flex lg:items-center lg:justify-center gap-6">
+          <div class="absolute w-12 -top-6 lg:relative lg:top-0 lg:w-20">
+            <img src="./images/account.svg" class="w-full" alt="account">
+          </div>
+          <div class="block">
+            <h2>Account <span class="new">NEW!</span><span class="featured hidden"></span></h2>
+            <h3>Junior Frontend Developer</h3>
+            <div class="flex items-center gap-x-2">
+              <h4>2d ago</h4>
+              <span class="dot"></span>
+              <h4>Part Time</h4>
+              <span class="dot"></span>
+              <h4>USA only</h4>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t-2 my-2 lg:hidden">
+        <div id="tag-2" class="tag">
+          <span tag="tag_frontend">Frontend</span>
+          <span tag="tag_junior">Junior</span>
+          <span tag="tag_react">React</span>
+          <span tag="tag_sass">Sass</span>
+          <span tag="tag_javascript">Javascript</span>
+        </div>
       </div>
+
     </div>
-
-    <!-- Manage -->
-    <div id="2" class="list-job">
-      <div class="absolute w-12 -top-6">
-        <img src="./images/manage.svg" class="w-full" alt="manage">
-      </div>
-      <h2>Manage <span class="new">NEW!</span><span class="featured">FEATURED</span></h2>
-      <h3>Fullstack Developer</h3>
-      <div class="flex items-center gap-x-2">
-        <h4>1d ago</h4>
-        <span class="dot"></span>
-        <h4>Part Time</h4>
-        <span class="dot"></span>
-        <h4>Remote</h4>
-      </div>
-      <hr class="border-t-2 my-2">
-      <div id="tag-2" class="tag">
-        <span tag="tag_fullstack">Fullstack</span>
-        <span tag="tag_midweight">Midweight</span>
-        <span tag="tag_python">Python</span>
-        <span tag="tag_react">React</span>
-      </div>
-    </div>
-
-    <!-- Account -->
-    <div id="3" class="list-job">
-      <div class="absolute w-12 -top-6">
-        <img src="./images/account.svg" class="w-full" alt="account">
-      </div>
-      <h2>Account <span class="new">NEW!</span><span class="featured hidden"></span></h2>
-      <h3>Junior Frontend Developer</h3>
-      <div class="flex items-center gap-x-2">
-        <h4>2d ago</h4>
-        <span class="dot"></span>
-        <h4>Part Time</h4>
-        <span class="dot"></span>
-        <h4>USA only</h4>
-      </div>
-      <hr class="border-t-2 my-2">
-      <div id="tag-2" class="tag">
-        <span tag="tag_frontend">Frontend</span>
-        <span tag="tag_junior">Junior</span>
-        <span tag="tag_react">React</span>
-        <span tag="tag_sass">Sass</span>
-        <span tag="tag_javascript">Javascript</span>
-      </div>
-    </div>
-
   </div>
 
   <!-- FOOTER -->
