@@ -1042,6 +1042,13 @@ h4 {
   color: hsl(180 29% 50% / var(--tw-text-opacity));
 }
 
+.tag span:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(180 29% 50% / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .sort_tag {
   display: flex;
   flex-wrap: wrap;
@@ -1061,6 +1068,11 @@ h4 {
   border-right-width: 38px;
   --tw-border-opacity: 1;
   border-color: hsl(180 29% 50% / var(--tw-border-opacity));
+}
+
+.sort_tag .list_tag:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(180 14% 20% / var(--tw-border-opacity));
 }
 
 .clear {
