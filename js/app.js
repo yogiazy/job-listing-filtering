@@ -2,11 +2,6 @@ const $ = (x) => document.querySelector(x);
 
 function addFilter(data) {
         const tag = data.getAttribute('tag');
-        const elementFilter = `
-                <div class="list_tag relative" tag="${tag}">${data.textContent}
-                        <img src="./images/icon-remove.svg" class="icon_remove" alt="icon-remove">
-                </div>`;
-
         const filter = document.createElement('div');
         filter.className = 'list_tag relative';
         filter.setAttribute('tag', `${tag}`);
