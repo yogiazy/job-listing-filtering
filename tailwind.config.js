@@ -14,6 +14,9 @@ module.exports = {
         filter_cyan: 'hsl(180, 31%, 95%)',
         gray_cyan: 'hsl(180, 8%, 52%)',
         dark_gray_cyan: 'hsl(180, 14%, 20%)'
+      },
+      boxShadow: {
+        '3xl': '0 2px 20px -8px hsl(180, 29%, 50%)'
       }
     },
   },
