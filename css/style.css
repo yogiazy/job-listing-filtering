@@ -740,6 +740,11 @@ h3 {
   color: hsl(180 14% 20% / var(--tw-text-opacity));
 }
 
+h3:hover {
+  --tw-text-opacity: 1;
+  color: hsl(180 29% 50% / var(--tw-text-opacity));
+}
+
 h4 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;

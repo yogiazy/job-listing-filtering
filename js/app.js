@@ -86,7 +86,7 @@ window.onload = function () {
                         for (var i = 0; i < data.length; i++) {
                                 const newJobElement = document.createElement('div');
                                 newJobElement.id = data[i].id;
-                                newJobElement.classList.add('list-job', 'list-active', 'list-filtered');
+                                newJobElement.classList.add('list-job', 'list-filtered');
 
                                 const flexContainer = document.createElement('div');
                                 flexContainer.classList.add('flex', 'lg:items-center', 'lg:justify-center', 'gap-6');
@@ -120,6 +120,7 @@ window.onload = function () {
                                 if (data[i].featured) {
                                         featuredSpan.classList.add('featured');
                                         featuredSpan.textContent = 'FEATURED';
+                                        newJobElement.classList.add('list-active');
                                 }
 
                                 heading2.appendChild(newSpan);
